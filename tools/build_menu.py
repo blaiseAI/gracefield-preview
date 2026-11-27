@@ -68,6 +68,16 @@ sections = "\n".join(f'''  <section class="cat-section" id="{c["id"]}" aria-labe
   </section>''' for c in cats)
 total = sum(len(c["dishes"]) for c in cats)
 
+_all = [d for c in cats for d in c["dishes"]]
+_legend = []
+if any(d.get("heat") for d in _all):
+    _legend.append(f'        <span>{heat(2)} Heat, out of 3</span>')
+_tags = (['<span class="farm-tag">From our farm</span>'] if any(d.get("farm") for d in _all) else []) + [
+    f'<span class="diet">{x}</span>' for x in ("Vegan", "Vegetarian", "Gluten-free") if any(x in d.get("diet", []) for d in _all)]
+if _tags:
+    _legend.append("        <span>" + " ".join(_tags) + "</span>")
+legend_html = "\n".join(_legend)
+
 # ---------- schema.org Menu (JSON-LD) from the same data ----------
 DIET_SCHEMA = {"Vegan": "https://schema.org/VeganDiet", "Vegetarian": "https://schema.org/VegetarianDiet",
                "Gluten-free": "https://schema.org/GlutenFreeDiet"}
@@ -98,18 +108,18 @@ page = f'''<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow"><!-- REVIEW PREVIEW ONLY: remove on the real site -->
 <title>Menu · Gracefield Foods &amp; Farms, Edmonton</title>
-<meta name="description" content="The full Gracefield Foods &amp; Farms menu: jollof, soups and swallow, grill, Ethiopian platters, sides and drinks. Call 587-566-0074 to order.">
+<meta name="description" content="The full Gracefield Foods &amp; Farms menu: nyama choma, brochette, stews, matoke, isombe, ugali, sides, snacks and drinks. Call or text 587-566-0074 to order.">
 <!-- LAUNCH: replace relative URLs with the full domain (https://…) and add <link rel="canonical">. -->
 <meta name="theme-color" content="#f4efe6">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Gracefield Foods &amp; Farms">
 <meta property="og:title" content="The menu · Gracefield Foods &amp; Farms">
-<meta property="og:description" content="{total} dishes: jollof, egusi, suya, doro wat and more. Call 587-566-0074 to order for pickup.">
+<meta property="og:description" content="{total} dishes: nyama choma, matoke, isombe, chapati and more. Call or text 587-566-0074 to order for pickup.">
 <meta property="og:image" content="assets/share-1200x630.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Cast-iron pot of jollof rice with fried plantain and a scotch bonnet">
+<meta property="og:image:alt" content="Cast-iron pot of tomato rice with fried plantain and a red pepper">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
@@ -144,15 +154,14 @@ page = f'''<!doctype html>
     <div class="wrap">
       <h1 id="page-title">The menu.</h1>
       <div class="row">
-        <p class="lede">{total} dishes across {len(cats)} sections. Find your plate, then call and we'll have it hot for pickup.</p>
+        <p class="lede">{total} dishes across {len(cats)} sections. Find your plate, then call or text and we'll have it hot for pickup.</p>
         <div class="hero-call"><a class="btn btn-primary" href="tel:+15875660074" data-callbar-anchor>Call 587-566-0074 to order</a><p class="open-status" data-open-status hidden></p></div>
       </div>
       <div class="legend">
-        <span>{heat(2)} Heat, out of 3</span>
-        <span><span class="farm-tag">From our farm</span> <span class="diet">Vegan</span> <span class="diet">Vegetarian</span> <span class="diet">Gluten-free</span></span>
-        <span>Allergies? Tell us when you call.</span>
+{legend_html}
+        <span>Allergies? Tell us when you call or text.</span>
       </div>
-      <span class="placeholder-note">Sample dishes, prices and allergens · to confirm with Gracefield</span>
+      <span class="placeholder-note">Prices from the Gracefield menu · allergens and farm tags to confirm</span>
     </div>
   </section>
 
@@ -167,7 +176,14 @@ page = f'''<!doctype html>
 
 <footer class="site-footer">
   <div class="wrap">
-    <div><a class="brand" href="homepage-preview.html">Gracefield <span class="brand-sub">Foods &amp; Farms</span></a><p>African kitchen &amp; farm · Edmonton, Alberta</p></div>
+    <div><a class="brand" href="homepage-preview.html">Gracefield <span class="brand-sub">Foods &amp; Farms</span></a><p>African kitchen &amp; farm · Edmonton, Alberta</p>
+      <ul class="foot-social" aria-label="Gracefield online">
+        <li><a href="https://www.instagram.com/sandrineuwase01/" rel="noopener" target="_blank">Instagram<span class="vh"> (opens in a new tab)</span></a></li>
+        <li><a href="https://www.tiktok.com/@uwasesandrine709" rel="noopener" target="_blank">TikTok<span class="vh"> (opens in a new tab)</span></a></li>
+        <li><a href="https://www.facebook.com/search/top?q=Gracefield%20Foods%20and%20Farms%20Ltd" rel="noopener" target="_blank">Facebook<span class="vh"> (opens in a new tab)</span></a></li>
+        <li><a href="mailto:gracefieldfoodsandfarms@gmail.com">gracefieldfoodsandfarms@gmail.com</a></li>
+      </ul>
+    </div>
     <div>
       <a class="foot-phone" href="tel:+15875660074">587-566-0074</a>
       <p>Tue–Sun 11:00–21:00</p>
