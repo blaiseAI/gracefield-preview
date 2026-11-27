@@ -1,0 +1,16 @@
+# Whitelist: only the public review site is tracked.
+/*
+!/.gitignore
+!/.nojekyll
+!/README.md
+!/index.html
+!/robots.txt
+!/homepage-preview.html
+!/menu-preview.html
+!/hero-preview.html
+!/menu-data.json
+!/assets/
+!/tools/
+# never publish
+.DS_Store
+__pycache__/

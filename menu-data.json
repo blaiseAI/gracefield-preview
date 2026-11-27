@@ -1,0 +1,71 @@
+{
+  "_note": "SAMPLE menu for preview. Every dish, price, allergen and flag must be confirmed with Gracefield before launch.",
+  "_schema": {
+    "name": "Dish name (required)",
+    "price": "Price as shown, e.g. $16 (required)",
+    "desc": "One-sentence description (required)",
+    "origin": "Country or region (optional)",
+    "image": "Path to a square photo (optional; row reflows without it)",
+    "alt": "Photo description (required when image is set)",
+    "diet": "Any of: Vegan, Vegetarian, Gluten-free",
+    "heat": "0 to 3",
+    "allergens": "List, e.g. Peanuts, Fish, Wheat, Egg, Sesame",
+    "serves": "e.g. 1 or 2-3 (optional)",
+    "flags": "Any of: Popular, New, Weekends only, Sold out",
+    "home": "true = show in the homepage favourites (keep to 6 or fewer)",
+    "farm": "true = made with produce or meat from the Gracefield farm (shows a From our farm tag)"
+  },
+  "categories": [
+    {
+      "id": "rice", "name": "Rice & mains", "note": "Our pots, cooked low and slow every morning.",
+      "dishes": [
+        {"home": true, "name": "Party Jollof Rice", "price": "$16", "origin": "West Africa", "desc": "Smoky tomato-and-pepper rice cooked low in the pot, with fried plantain on top.", "image": "assets/dish-jollof.webp", "alt": "Jollof rice with fried plantain and a scotch bonnet in a cast-iron pot", "diet": ["Vegan", "Gluten-free"], "heat": 2, "allergens": [], "serves": "1", "flags": ["Popular"]},
+        {"name": "Waakye", "price": "$15", "origin": "Ghana", "desc": "Rice and black-eyed beans with shito pepper sauce, boiled egg and gari.", "diet": [], "heat": 2, "allergens": ["Egg", "Fish"], "serves": "1", "flags": []},
+        {"name": "Fried Rice & Chicken", "price": "$17", "origin": "Nigeria", "desc": "Vegetable fried rice with a quarter chicken, peppered and grilled.", "diet": ["Gluten-free"], "heat": 1, "allergens": [], "serves": "1", "flags": []},
+        {"farm": true, "name": "Chicken Yassa", "price": "$18", "origin": "Senegal", "desc": "Chicken braised with caramelised onion, lemon and mustard, over white rice.", "diet": ["Gluten-free"], "heat": 1, "allergens": ["Mustard"], "serves": "1", "flags": ["New"]}
+      ]
+    },
+    {
+      "id": "soups", "name": "Soups & swallow", "note": "Rich stews served with a swallow: pounded yam, fufu or eba.",
+      "dishes": [
+        {"home": true, "farm": true, "name": "Egusi & Pounded Yam", "image": "assets/dish-egusi.webp", "alt": "Bowl of egusi stew with greens and beef beside a dome of pounded yam", "price": "$19", "origin": "Nigeria", "desc": "Ground melon-seed stew with leafy greens.", "diet": ["Gluten-free"], "heat": 1, "allergens": ["Fish"], "serves": "1", "flags": ["Popular"]},
+        {"farm": true, "name": "Efo Riro", "price": "$18", "origin": "Nigeria", "desc": "Spinach stewed in red pepper sauce with smoked fish.", "diet": ["Gluten-free"], "heat": 2, "allergens": ["Fish"], "serves": "1", "flags": []},
+        {"farm": true, "name": "Light Soup & Fufu", "price": "$18", "origin": "Ghana", "desc": "Tomato-ginger goat soup, light but fiery.", "diet": ["Gluten-free"], "heat": 3, "allergens": [], "serves": "1", "flags": ["Weekends only"]},
+        {"name": "Okra Soup & Eba", "price": "$17", "origin": "West Africa", "desc": "Fresh okra with beef and stockfish.", "diet": ["Gluten-free"], "heat": 1, "allergens": ["Fish"], "serves": "1", "flags": []}
+      ]
+    },
+    {
+      "id": "grill", "name": "From the grill", "note": "Charcoal-grilled to order. Allow 20 minutes.",
+      "dishes": [
+        {"home": true, "name": "Suya Skewers", "image": "assets/dish-suya.webp", "alt": "Spice-crusted beef suya skewers with red onion and tomato on a dark plate", "price": "$15", "origin": "Nigeria", "desc": "Thin-sliced beef rubbed with peanut-chili yaji, served with red onion.", "diet": ["Gluten-free"], "heat": 3, "allergens": ["Peanuts"], "serves": "1", "flags": ["Popular"]},
+        {"name": "Grilled Tilapia", "price": "$24", "origin": "Ghana", "desc": "Whole fish with pepper sauce and fried plantain.", "diet": ["Gluten-free"], "heat": 2, "allergens": ["Fish"], "serves": "1", "flags": ["Sold out"]},
+        {"farm": true, "name": "Nyama Choma", "price": "$22", "origin": "Kenya", "desc": "Grilled goat with kachumbari tomato-onion salad.", "diet": ["Gluten-free"], "heat": 0, "allergens": [], "serves": "2", "flags": []}
+      ]
+    },
+    {
+      "id": "ethiopian", "name": "Ethiopian", "note": "Served on injera, made to share.",
+      "dishes": [
+        {"home": true, "name": "Doro Wat & Injera", "image": "assets/dish-doro-wat.webp", "alt": "Doro wat chicken stew with a boiled egg on injera, rolled injera at the side", "price": "$20", "origin": "Ethiopia", "desc": "Slow berbere chicken stew with a boiled egg.", "diet": [], "heat": 2, "allergens": ["Egg"], "serves": "1", "flags": ["Popular"]},
+        {"name": "Misir Wat", "price": "$16", "origin": "Ethiopia", "desc": "Red lentils simmered in berbere.", "diet": ["Vegan"], "heat": 2, "allergens": [], "serves": "1", "flags": []},
+        {"farm": true, "name": "Veggie Combo", "price": "$19", "origin": "Ethiopia", "desc": "Lentils, split peas, cabbage and greens on one platter.", "diet": ["Vegan"], "heat": 1, "allergens": [], "serves": "2", "flags": []}
+      ]
+    },
+    {
+      "id": "sides", "name": "Sides", "note": "Add any of these to a plate.",
+      "dishes": [
+        {"home": true, "name": "Fried Plantain", "price": "$6", "origin": "West Africa", "desc": "Ripe plantain, fried until the edges caramelise.", "diet": ["Vegan", "Gluten-free"], "heat": 0, "allergens": [], "serves": "1", "flags": []},
+        {"name": "Moi Moi", "price": "$7", "origin": "Nigeria", "desc": "Steamed bean pudding with peppers.", "diet": ["Vegetarian", "Gluten-free"], "heat": 1, "allergens": ["Egg"], "serves": "1", "flags": []},
+        {"name": "Puff-Puff", "price": "$6", "origin": "West Africa", "desc": "Sweet fried dough balls, six to a bag.", "diet": ["Vegan"], "heat": 0, "allergens": ["Wheat"], "serves": "1", "flags": []},
+        {"name": "Jollof on the side", "price": "$7", "origin": "West Africa", "desc": "A smaller scoop of the house jollof.", "diet": ["Vegan", "Gluten-free"], "heat": 2, "allergens": [], "serves": "1", "flags": []}
+      ]
+    },
+    {
+      "id": "drinks", "name": "Drinks", "note": "Cold and house-made where we can.",
+      "dishes": [
+        {"name": "Zobo", "price": "$5", "origin": "Nigeria", "desc": "Hibiscus with ginger and pineapple, made in-house.", "diet": ["Vegan", "Gluten-free"], "heat": 0, "allergens": [], "flags": []},
+        {"name": "Ginger Beer", "price": "$5", "origin": "House-made", "desc": "Fiery and fresh-pressed.", "diet": ["Vegan", "Gluten-free"], "heat": 1, "allergens": [], "flags": []},
+        {"name": "Malta", "price": "$4", "origin": "Bottled", "desc": "Classic malt soda.", "diet": ["Vegan"], "heat": 0, "allergens": ["Wheat"], "flags": []}
+      ]
+    }
+  ]
+}
