@@ -116,10 +116,10 @@ page = f'''<!doctype html>
 <meta property="og:site_name" content="Gracefield Foods &amp; Farms">
 <meta property="og:title" content="The menu · Gracefield Foods &amp; Farms">
 <meta property="og:description" content="{total} dishes: nyama choma, matoke, isombe, chapati and more. Call or text 587-566-0074 to order for pickup.">
-<meta property="og:image" content="assets/share-1200x630.jpg">
+<meta property="og:image" content="assets/share-ea-1200x630.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Cast-iron pot of tomato rice with fried plantain and a red pepper">
+<meta property="og:image:alt" content="Grilled nyama choma with ugali, matoke, isombe, chapati and fried plantain">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">

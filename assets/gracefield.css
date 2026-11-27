@@ -58,7 +58,8 @@ a{color:inherit}
 .hero h1{margin:0;font:400 clamp(3rem,6.2vw,8.5rem)/.88 var(--display);text-transform:uppercase;letter-spacing:-.005em}
 .hero h1 .l1{position:absolute;left:var(--pad);top:clamp(5.5rem,9vh,7.5rem);animation:inL 1s .1s var(--ease) both}
 .hero h1 .l2{position:absolute;right:var(--pad);bottom:clamp(5.75rem,13vh,8rem);text-align:right;animation:inR 1s .2s var(--ease) both}
-.hero-copy{position:absolute;left:var(--pad);bottom:var(--pad);max-width:min(30ch,22vw);z-index:2}
+.hero-copy{position:absolute;left:var(--pad);bottom:var(--pad);max-width:min(32ch,24vw);z-index:2;
+  background:var(--canvas);padding:1.125rem 1.25rem .75rem;border-radius:1rem;box-shadow:0 12px 32px var(--shadow)} /* sits over a busy photo on wide screens */
 .hero-copy p{margin:0 0 .5rem;font-size:clamp(.9375rem,1.1vw,1.125rem);line-height:1.5}
 .hero-copy .where{display:block;font-weight:600;margin-bottom:.375rem}
 .link-arrow{font:600 1rem/1 var(--body);color:var(--accent-text);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;min-height:2.75rem;border:0;background:none;padding:0;cursor:pointer}
@@ -171,7 +172,7 @@ dialog.details[open]{animation:pop .35s var(--ease)}
   .hero h1 .l1,.hero h1 .l2{position:static}
   .hero picture{order:2;display:block}
   .hero-img{position:static;order:2;width:auto;height:auto;aspect-ratio:16/9;margin:1.25rem calc(var(--pad) * -1);max-width:none;object-fit:cover}
-  .hero-copy{position:static;order:3;max-width:none;display:flex;flex-wrap:wrap;align-items:center;gap:.25rem 2rem;padding-right:15rem}
+  .hero-copy{position:static;order:3;max-width:none;display:flex;flex-wrap:wrap;align-items:center;gap:.25rem 2rem;padding:0 15rem 0 0;background:none;box-shadow:none;border-radius:0}
   .hero-copy p{margin:0;max-width:42ch;font-size:1.0625rem}
   .hero-copy .where{flex-basis:100%;margin:0}
   .edge-cta{position:absolute;right:var(--pad);bottom:1.75rem;border-radius:999px}
@@ -377,3 +378,11 @@ dialog.details[open]{animation:pop .35s var(--ease)}
 .order .order-text:focus-visible{outline-color:var(--on-ink)}
 .foot-social{list-style:none;margin:1rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:0 1.25rem}
 .foot-social a{display:inline-flex;align-items:center;min-height:2.75rem;color:var(--on-ink);font-size:.9375rem}
+
+/* ---------- Wide hero over a busy photo: sand "market label" backings ---------- */
+@media (min-width:1101px){
+  .hero h1 .l1,.hero h1 .l2{background:var(--canvas);padding:.08em .2em .02em;border-radius:.14em}
+  .hero h1 .l1{left:calc(var(--pad) - .2em)}
+  .hero h1 .l2{right:calc(var(--pad) - .2em)}
+  .site-header:not(.is-static) .nav-utility{background:var(--canvas);border-radius:999px;padding:0 1rem}
+}
